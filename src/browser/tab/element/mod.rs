@@ -77,13 +77,15 @@ impl<'a> Element<'a> {
 
         attrs.insert("tag".to_string(), tag);
         attrs.insert("value".to_string(), node.value.unwrap_or("".to_string()));
-        for i in (0..attrs_vec.len() - 1).step_by(2) {
+        if attrs_vec.len() > 0 {
+            for i in (0..attrs_vec.len() - 1).step_by(2) {
 
-            let k = attrs_vec[i].to_string();
-            let v = attrs_vec[i+1].to_string();
-            attrs.insert(k, v);
+                let k = attrs_vec[i].to_string();
+                let v = attrs_vec[i+1].to_string();
+                attrs.insert(k, v);
+            }
         }
-
+        
         Ok(Element {
             remote_object_id,
             backend_node_id,
