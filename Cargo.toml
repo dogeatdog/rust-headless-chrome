@@ -1,12 +1,12 @@
 [package]
 name = "headless_chrome_fork"
-version = "1.0.2"
-authors = ["Alistair Roche <alistair@sunburnt.country>"]
+version = "1.0.3"
+authors = ["Alistair Roche <alistair@sunburnt.country>","Dennis Meerveld <diskvolume@gmail.com>"]
 edition = "2018"
-description = "Control Chrome programatically"
+description = "Control Chrome programmatically - forked for personal use to have consistent dependency + bugfixes"
 license = "MIT"
-homepage = "https://github.com/masc-it/rust-headless-chrome"
-repository = "https://github.com/masc-it/rust-headless-chrome"
+homepage = "https://github.com/dogeatdog/rust-headless-chrome"
+repository = "https://github.com/dogeatdog/rust-headless-chrome"
 readme = "README.md"
 
 [dependencies]
