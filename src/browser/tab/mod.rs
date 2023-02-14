@@ -581,7 +581,7 @@ impl Tab {
     /// # fn main() -> Result<()> {
     /// # use headless_chrome::Browser;
     /// # let browser = Browser::default()?;
-    /// let tab = browser.wait_for_initial_tab()?;
+    /// let tab = browser.new_tab()?;
     /// tab.set_default_timeout(std::time::Duration::from_secs(5));
     /// #
     /// # Ok(())
@@ -695,7 +695,7 @@ impl Tab {
     /// use headless_chrome::Browser;
     ///
     /// let browser = Browser::default()?;
-    /// let initial_tab = browser.wait_for_initial_tab()?;
+    /// let initial_tab = browser.new_tab()?;
     ///
     /// let file_server = server::Server::with_dumb_html(include_str!("../../../tests/simple.html"));
     /// let element = initial_tab.navigate_to(&file_server.url())?
@@ -1079,7 +1079,7 @@ impl Tab {
     /// #
     /// use headless_chrome::{protocol::page::ScreenshotFormat, Browser, LaunchOptions};
     /// let browser = Browser::new(LaunchOptions::default_builder().build().unwrap())?;
-    /// let tab = browser.wait_for_initial_tab()?;
+    /// let tab = browser.new_tab()?;
     /// let viewport = tab.navigate_to("https://en.wikipedia.org/wiki/WebKit")?
     ///     .wait_for_element("#mw-content-text > div > table.infobox.vevent")?
     ///     .get_box_model()?
@@ -1173,7 +1173,7 @@ impl Tab {
     /// #
     /// use headless_chrome::{protocol::page::ScreenshotFormat, Browser, LaunchOptions};
     /// let browser = Browser::new(LaunchOptions::default_builder().build().unwrap())?;
-    /// let tab = browser.wait_for_initial_tab()?;
+    /// let tab = browser.new_tab()?;
     /// tab.set_transparent_background_color()?;
     ///
     /// #
@@ -1202,7 +1202,7 @@ impl Tab {
     /// #
     /// use headless_chrome::{protocol::page::ScreenshotFormat, Browser, LaunchOptions};
     /// let browser = Browser::new(LaunchOptions::default_builder().build().unwrap())?;
-    /// let tab = browser.wait_for_initial_tab()?;
+    /// let tab = browser.new_tab()?;
     /// tab.set_background_color( color: RGBA { r: 255, g: 0, b: 0, a: 1.,})?;
     ///
     /// #
@@ -1465,7 +1465,7 @@ impl Tab {
     /// # use headless_chrome::Browser;
     /// # use headless_chrome::protocol::Event;
     /// # let browser = Browser::default()?;
-    /// # let tab = browser.wait_for_initial_tab()?;
+    /// # let tab = browser.new_tab()?;
     /// tab.enable_log()?;
     /// tab.add_event_listener(Arc::new(move |event: &Event| {
     ///     match event {
@@ -1642,7 +1642,7 @@ impl Tab {
     /// # fn main() -> Result<()> {
     /// #
     /// # let browser = Browser::default()?;
-    /// # let tab = browser.wait_for_initial_tab()?;
+    /// # let tab = browser.new_tab()?;
     /// tab.navigate_to("https://google.com")?;
     /// tab.wait_until_navigated()?;
     /// let title = tab.get_title()?;

@@ -32,7 +32,7 @@ use headless_chrome::protocol::cdp::Page;
 fn browse_wikipedia() -> Result<(), Box<dyn Error>> {
     let browser = Browser::default()?;
 
-    let tab = browser.wait_for_initial_tab()?;
+    let tab = browser.new_tab()?;
 
     /// Navigate to wikipedia
     tab.navigate_to("https://www.wikipedia.org")?;
@@ -87,39 +87,36 @@ fn browse_wikipedia() -> Result<(), Box<dyn Error>> {
 headless_chrome = {git = "https://github.com/atroche/rust-headless-chrome", features = ["fetch"]}
 ```
 
-
-
 For fuller examples, take a look at [`tests/simple.rs`](tests/simple.rs) and [`examples`](examples/).
 
 > Before running examples. Make sure add [failure](https://crates.io/crates/failure) crate in your cargo project dependency of `Cargo.toml`
-
 
 ## What can't it do?
 
 The [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/tot/Browser) is huge. Currently, Puppeteer supports way more of it than we do. Some of the missing features include:
 
--  Dealing with frames
--  Handling file picker / chooser interactions
--  Tapping touchscreens
--  Emulating different network conditions (DevTools can alter latency, throughput, offline status, 'connection type')
--  Viewing timing information about network requests
--  Reading the SSL certificate
--  Replaying XHRs
--  HTTP Basic Auth
--  Inspecting `EventSource`s (aka server-sent events or SSEs)
--  WebSocket inspection
+- Dealing with frames
+- Handling file picker / chooser interactions
+- Tapping touchscreens
+- Emulating different network conditions (DevTools can alter latency, throughput, offline status, 'connection type')
+- Viewing timing information about network requests
+- Reading the SSL certificate
+- Replaying XHRs
+- HTTP Basic Auth
+- Inspecting `EventSource`s (aka server-sent events or SSEs)
+- WebSocket inspection
 
 If you're interested in adding one of these features but would like some advice about how to start, please reach out by creating an issue or sending me an email at [`alistair@sunburnt.country`](mailto:alistair@sunburnt.country).
 
 ## Related crates
 
--  [fantoccini](https://github.com/jonhoo/fantoccini) uses WebDriver, so it works with browsers other than Chrome. It's also asynchronous and based on Tokio, unlike `headless_chrome`, which has a synchronous API and is just implemented using plain old threads. Fantoccini has also been around longer and is more battle-tested. It doesn't support Chrome DevTools-specific functionality like JS Coverage.
+- [fantoccini](https://github.com/jonhoo/fantoccini) uses WebDriver, so it works with browsers other than Chrome. It's also asynchronous and based on Tokio, unlike `headless_chrome`, which has a synchronous API and is just implemented using plain old threads. Fantoccini has also been around longer and is more battle-tested. It doesn't support Chrome DevTools-specific functionality like JS Coverage.
 
 ## Testing
 
 For debug output, set these environment variables before running `cargo test`:
 
-```RUST_BACKTRACE=1 RUST_LOG=headless_chrome=trace```
+`RUST_BACKTRACE=1 RUST_LOG=headless_chrome=trace`
 
 ## Version numbers
 
